@@ -227,6 +227,21 @@ highlights:
   badges: ["Award"]
 ``` -->
 
+## 🤠 Favicon 
+
+To customize the favicon, add your `favicon.ico` file to the `static/` directory of your Hugo site. You can generate a favicon using online tools like [favicon.io](https://favicon.io/). The files' name are automactically genreated via the tool. The file structure should look like this:
+
+```text
+static/
+├─ android-chrome-192x192.png
+├─ android-chrome-512x512.png
+├─ apple-touch-icon.png
+├─ favicon-16x16.png
+├─ favicon-32x32.png
+├─ favicon.ico
+└─ site.webmanifest
+```
+
 ## ⚖️ License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE.txt) file for details.
 

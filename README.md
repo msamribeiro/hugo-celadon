@@ -229,7 +229,7 @@ highlights:
 
 ## 🤠 Favicon 
 
-To customize the favicon, add your `favicon.ico` file to the `static/` directory of your Hugo site. You can generate a favicon using online tools like [favicon.io](https://favicon.io/). The files' name are automactically genreated via the tool. The file structure should look like this:
+To customize the favicon, add your `favicon.ico` files to the `static/` directory of your Hugo site. You can generate a favicon using online tools like [favicon.io](https://favicon.io/). The files' name are automactically genreated via the tool. The file structure should look like this:
 
 ```text
 static/

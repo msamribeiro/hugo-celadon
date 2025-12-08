@@ -1,7 +1,7 @@
 themesDir = "../.."
 baseURL = 'https://yajie-xu.github.io/hugo-celadon/'
 languageCode = 'en-us'
-title = 'Alex Celadon'
+title = 'Dr. Celadon'
 theme = 'celadon'
 enableRobotsTXT = true
 

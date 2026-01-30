@@ -12,6 +12,9 @@
       <span class="meta-affiliation">{{ partial "utils/enrich-text.html" $profile.affiliation | markdownify | safeHTML }}</span>
     </p>
     <div class="summary">{{ partial "utils/enrich-text.html" $profile.summary | markdownify | safeHTML }}</div>
+    {{ with $profile.highlights_title }}
+      <div class="highlights-title">{{ . }}</div>
+    {{ end }}
     <ul class="highlight-list">
       {{ range $profile.highlights }}
         <li>{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</li>

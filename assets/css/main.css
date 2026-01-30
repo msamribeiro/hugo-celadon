@@ -233,6 +233,15 @@ body[data-theme="dark"] .morandi-nav {
   font-weight: 600;
 }
 
+.highlights-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
 .highlight-list {
   padding-left: 1.1rem;
   margin: 0 0 1.25rem;

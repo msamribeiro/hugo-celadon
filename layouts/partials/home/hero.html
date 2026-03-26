@@ -1,10 +1,10 @@
 {{ $profile := site.Data.profile }}
 <header class="hero section-block">
-  {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
-  <div class="hero-media">
-    <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
-  </div>
   <div id="{{ or .Section `hero` }}" class="hero-copy">
+    {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
+    <div class="hero-media">
+      <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+    </div>
     {{ $name := partial "utils/enrich-text.html" $profile.name | markdownify }}
     <h1>{{ $name | safeHTML }}</h1>
     <p class="meta">

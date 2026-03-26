@@ -151,19 +151,27 @@ body[data-theme="dark"] .morandi-nav {
 
 .hero {
   margin-top: 3rem;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 2rem;
-  align-items: center;
   padding: 3rem;
   border-radius: 24px;
   background: var(--color-surface);
   box-shadow: var(--shadow-soft);
 }
 
+.hero-copy::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.hero-media {
+  float: right;
+  margin: 0 0 1.5rem 2rem;
+}
+
 .hero-media img {
-  width: 100%;
-  border-radius: 26px;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
   object-fit: cover;
   display: block;
   box-shadow: var(--shadow-soft);
@@ -1404,8 +1412,12 @@ body[data-theme="dark"] .chroma .mf {
   }
 
   .hero {
-    grid-template-columns: 1fr;
     padding: 2rem;
+  }
+
+  .hero-media img {
+    width: 72px;
+    height: 72px;
   }
 
   .news-item {

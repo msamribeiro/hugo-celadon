@@ -1487,3 +1487,208 @@ body[data-theme="dark"] .chroma .mf {
 .view-compact .listing-card .tag-row {
     display: none !important;
 }
+
+/* ── Publications list ─────────────────────────────────────── */
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(125, 162, 169, 0.2);
+}
+
+.pub-item:last-child {
+  border-bottom: 1px solid rgba(125, 162, 169, 0.2);
+}
+
+.pub-year {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  padding-top: 0.1rem;
+}
+
+.pub-venue {
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin: 0 0 0.3rem;
+}
+
+.pub-title {
+  font-size: 0.975rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+}
+
+.pub-desc {
+  font-family: "Merriweather", serif;
+  font-size: 0.83rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  margin: 0 0 0.75rem;
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ── Experience list ────────────────────────────────────────── */
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 0.25rem;
+}
+
+.exp-item {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.25rem;
+}
+
+.exp-item--current {
+  border-left-color: var(--color-highlight);
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.exp-org {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.exp-period {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.exp-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.exp-role-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.exp-role-title {
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.exp-role-period {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+.exp-now {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  background: var(--color-highlight-soft);
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+}
+
+.exp-desc {
+  font-family: "Merriweather", serif;
+  font-size: 0.83rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Education list ─────────────────────────────────────────── */
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(125, 162, 169, 0.2);
+}
+
+.edu-item:last-child {
+  border-bottom: 1px solid rgba(125, 162, 169, 0.2);
+}
+
+.edu-item--muted {
+  opacity: 0.65;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.edu-degree {
+  font-size: 0.975rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.edu-period {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.edu-inst {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.edu-thesis {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.edu-thesis a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-color: rgba(125, 162, 169, 0.45);
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+  font-style: normal;
+}
+
+.edu-thesis a:hover,
+.edu-thesis a:focus-visible {
+  color: var(--color-highlight);
+  text-decoration-color: var(--color-highlight);
+}

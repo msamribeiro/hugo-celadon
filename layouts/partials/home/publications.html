@@ -1,0 +1,42 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) $config.title }}
+{{ $items := .Data }}
+{{ if not $items }}{{ $items = slice }}{{ end }}
+{{ $limit := default 5 $config.limit }}
+
+<section id="{{ $section }}" class="section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div><h2>{{ $title }}</h2></div>
+  </div>
+  <div class="collapsible" data-expandable data-limit="{{ $limit }}">
+    <div class="pub-list" data-expandable-content>
+      {{ range $items }}
+        <article class="pub-item">
+          <div class="pub-year">{{ .date }}</div>
+          <div class="pub-body">
+            {{ with .meta }}<p class="pub-venue">{{ . }}</p>{{ end }}
+            <h3 class="pub-title">{{ .title }}</h3>
+            {{ with .summary }}<p class="pub-desc">{{ . }}</p>{{ end }}
+            {{ with .links }}
+              <div class="pub-links">
+                {{ range . }}
+                  {{ $dest := or .link .url }}
+                  {{ if and (hasPrefix $dest "/") (not (hasPrefix $dest "//")) }}
+                    <a class="chip-link" href="{{ $dest | relURL }}">{{ .label }}</a>
+                  {{ else }}
+                    <a class="chip-link" href="{{ $dest | safeURL }}" target="_blank" rel="noopener">{{ .label }}</a>
+                  {{ end }}
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+    {{ if gt (len $items) $limit }}
+      <button class="ghost-toggle" type="button" data-expand-toggle>Show More ↓</button>
+    {{ end }}
+  </div>
+</section>

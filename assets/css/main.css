@@ -211,8 +211,7 @@ body[data-theme="dark"] .morandi-nav {
   margin-bottom: 1.25rem;
 }
 
-.hero-copy .summary a,
-.hero-copy .highlight-list a {
+.hero-copy .summary a {
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: underline;
@@ -221,14 +220,12 @@ body[data-theme="dark"] .morandi-nav {
 }
 
 .hero-copy .summary a:hover,
-.hero-copy .highlight-list a:hover,
-.hero-copy .summary a:focus-visible,
-.hero-copy .highlight-list a:focus-visible {
+.hero-copy .summary a:focus-visible {
   color: var(--color-highlight);
 }
 
 .hero-copy mark,
-.hero-copy .highlight-list mark {
+.hero-copy mark {
   background-color: var(--color-highlight-soft);
   color: var(--color-highlight);
   padding: 0.05rem 0.35rem;
@@ -247,24 +244,33 @@ body[data-theme="dark"] .morandi-nav {
   font-weight: 600;
 }
 
-.highlights-title {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+.hero-chips {
+  margin-bottom: 1.25rem;
+}
+
+.hero-chips-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-secondary);
   margin-bottom: 0.5rem;
-  font-weight: 600;
 }
 
-.highlight-list {
-  padding-left: 1.1rem;
-  margin: 0 0 1.25rem;
-  font-family: "Merriweather", serif;
-  color: var(--color-text);
+.hero-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.highlight-list li {
-  margin-bottom: 0.4rem;
+.hero-chip {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .hero-links {

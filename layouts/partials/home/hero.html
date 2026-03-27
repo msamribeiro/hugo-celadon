@@ -1,25 +1,33 @@
 {{ $profile := site.Data.profile }}
 <header class="hero section-block">
   <div id="{{ or .Section `hero` }}" class="hero-copy">
-    {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
-    <div class="hero-media">
-      <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+    <div class="hero-header">
+      <div class="hero-header-text">
+        {{ $name := partial "utils/enrich-text.html" $profile.name | markdownify }}
+        <h1>{{ $name | safeHTML }}</h1>
+        <p class="meta">
+          {{ partial "utils/enrich-text.html" $profile.title | markdownify | safeHTML }}<br>
+          <span class="meta-affiliation">{{ partial "utils/enrich-text.html" $profile.affiliation | markdownify | safeHTML }}</span>
+        </p>
+      </div>
+      {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
+      <div class="hero-media">
+        <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+      </div>
     </div>
-    {{ $name := partial "utils/enrich-text.html" $profile.name | markdownify }}
-    <h1>{{ $name | safeHTML }}</h1>
-    <p class="meta">
-      {{ partial "utils/enrich-text.html" $profile.title | markdownify | safeHTML }}<br>
-      <span class="meta-affiliation">{{ partial "utils/enrich-text.html" $profile.affiliation | markdownify | safeHTML }}</span>
-    </p>
     <div class="summary">{{ partial "utils/enrich-text.html" $profile.summary | markdownify | safeHTML }}</div>
-    {{ with $profile.highlights_title }}
-      <div class="highlights-title">{{ . }}</div>
+    {{ with $profile.highlights }}
+      <div class="hero-chips">
+        {{ with $profile.highlights_title }}
+          <div class="hero-chips-label">{{ . }}</div>
+        {{ end }}
+        <div class="hero-chips-list">
+          {{ range . }}
+            <span class="hero-chip">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+          {{ end }}
+        </div>
+      </div>
     {{ end }}
-    <ul class="highlight-list">
-      {{ range $profile.highlights }}
-        <li>{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</li>
-      {{ end }}
-    </ul>
     <div class="hero-links">
       {{ range $profile.links }}
         {{ $link := or .link .url }}

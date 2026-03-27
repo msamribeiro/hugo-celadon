@@ -157,15 +157,21 @@ body[data-theme="dark"] .morandi-nav {
   box-shadow: var(--shadow-soft);
 }
 
-.hero-copy::after {
-  content: '';
-  display: table;
-  clear: both;
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-header-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .hero-media {
-  float: right;
-  margin: 0 0 1.5rem 2rem;
+  flex-shrink: 0;
 }
 
 .hero-media img {
@@ -190,7 +196,7 @@ body[data-theme="dark"] .morandi-nav {
 }
 
 .hero-copy .meta {
-  margin: 0 0 1rem;
+  margin: 0;
   font-weight: 500;
   line-height: 1.4;
 }

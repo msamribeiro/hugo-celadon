@@ -317,6 +317,24 @@ body[data-theme="dark"] .morandi-nav {
   display: inline-block;
 }
 
+.section-note {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-top: -1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-note a {
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  transition: color 0.2s ease;
+}
+
+.section-note a:hover {
+  color: var(--color-primary);
+}
+
 .news-list {
   display: flex;
   flex-direction: column;

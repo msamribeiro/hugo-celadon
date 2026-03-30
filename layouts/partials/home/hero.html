@@ -12,7 +12,11 @@
       </div>
       {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
       <div class="hero-media">
-        <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+        <img class="hero-media-img--light" src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+        {{ with $profile.profile_image_dark }}
+          {{ $profileImageDark := strings.TrimPrefix "/" . }}
+          <img class="hero-media-img--dark" src="{{ $profileImageDark | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+        {{ end }}
       </div>
     </div>
     <div class="summary">{{ partial "utils/enrich-text.html" $profile.summary | markdownify | safeHTML }}</div>

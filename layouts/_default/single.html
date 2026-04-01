@@ -2,7 +2,7 @@
   <div class="article-shell">
     <a class="article-back" href="{{ with .CurrentSection }}{{ .RelPermalink }}{{ else }}{{ site.Home.Permalink }}{{ end }}">← Back</a>
     <header class="article-head">
-      <p class="article-date">{{ if .Date }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</p>
+      <p class="article-date">{{ if .Date }}{{ .Date.Format "Jan 2, 2006" }}{{ end }} · {{ .ReadingTime }} min read</p>
       <h1 class="article-title">{{ .Title }}</h1>
     </header>
     <article class="article-content markdown-body">

@@ -628,7 +628,7 @@ body[data-theme="dark"] .tag {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(28, 28, 30, 0.35);
+  background: rgba(28, 28, 30, 0.4);
   transition: opacity 0.25s ease;
 }
 

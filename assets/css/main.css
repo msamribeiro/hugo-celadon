@@ -174,24 +174,26 @@ body[data-theme="dark"] .morandi-nav {
   flex-shrink: 0;
 }
 
-.hero-media img {
+.hero-media-img--light,
+.hero-media-img--dark {
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
   display: block;
   box-shadow: var(--shadow-soft);
 }
 
-.hero-media img.hero-media-img--dark {
+.hero-media-img--dark {
   display: none;
 }
 
-body[data-theme="dark"] .hero-media img.hero-media-img--light {
+body[data-theme="dark"] .hero-media-img--light {
   display: none;
 }
 
-body[data-theme="dark"] .hero-media img.hero-media-img--dark {
+body[data-theme="dark"] .hero-media-img--dark {
   display: block;
 }
 

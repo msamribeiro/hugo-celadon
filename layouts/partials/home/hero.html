@@ -12,10 +12,10 @@
       </div>
       {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
       <div class="hero-media">
-        <img class="hero-media-img--light" src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+        <div class="hero-media-img--light" style="background-image: url('{{ $profileImage | relURL }}');" role="img" aria-label="{{ $profile.name }} portrait"></div>
         {{ with $profile.profile_image_dark }}
           {{ $profileImageDark := strings.TrimPrefix "/" . }}
-          <img class="hero-media-img--dark" src="{{ $profileImageDark | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+          <div class="hero-media-img--dark" style="background-image: url('{{ $profileImageDark | relURL }}');" role="img" aria-label="{{ $profile.name }} portrait"></div>
         {{ end }}
       </div>
     </div>

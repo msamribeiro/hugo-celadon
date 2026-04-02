@@ -1,0 +1,24 @@
+{{- $src  := .Get "src" -}}
+{{- $title := .Get "title" -}}
+{{- $url  := .Get "url" | default "#" -}}
+{{- $tags := .Get "tags" -}}
+<div class="clip-card">
+  <div class="clip-content">
+    <div class="clip-title">
+      {{- if $url }}<a href="{{ $url }}" target="_blank" rel="noopener">{{ $title }}</a>{{ else }}{{ $title }}{{ end -}}
+    </div>
+    {{- if $tags }}
+    <div class="clip-tags">
+      {{- range split $tags "·" }}
+      <span class="clip-tag">{{ trim . " " }}</span>
+      {{- end }}
+    </div>
+    {{- end }}
+    <div class="clip-body">{{ .Inner | markdownify }}</div>
+  </div>
+  {{- if $src }}
+  <div class="clip-image" aria-hidden="true">
+    <img src="{{ $src }}" alt="">
+  </div>
+  {{- end }}
+</div>

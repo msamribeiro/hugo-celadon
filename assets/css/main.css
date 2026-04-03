@@ -749,6 +749,55 @@ body[data-theme="dark"] .tag {
   margin-bottom: 0.5rem;
 }
 
+.markdown-body h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-highlight-soft);
+  padding-bottom: 0.35rem;
+  margin-top: 2.75rem;
+}
+
+.markdown-body h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: 1.75rem;
+}
+
+.markdown-body h4 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+}
+
+.markdown-body strong {
+  font-weight: 700;
+}
+
+.markdown-body em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.markdown-body strong > em,
+.markdown-body em > strong {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-highlight);
+}
+
+.markdown-body li::marker {
+  color: var(--color-highlight);
+}
+
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid var(--color-highlight-soft);
+  margin: 2.75rem 0;
+}
+
 .markdown-body p {
   margin: 1rem 0;
 }
@@ -792,6 +841,38 @@ body[data-theme="dark"] .tag {
   border-radius: 6px;
   font-size: 0.95rem;
 }
+
+.callout {
+  border-left: 3px solid var(--color-highlight);
+  background: var(--color-highlight-soft);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.2rem 0.9rem 1.1rem;
+  margin: 1.5rem 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  margin-bottom: 0.55rem;
+}
+
+.callout-body {
+  font-family: "Merriweather", serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.callout-body p { margin: 0.4rem 0; }
+.callout-body p:first-child { margin-top: 0; }
+.callout-body p:last-child  { margin-bottom: 0; }
 
 .code-frame {
   background: transparent;

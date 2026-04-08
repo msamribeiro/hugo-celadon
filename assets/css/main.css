@@ -1991,11 +1991,26 @@ body[data-theme="dark"] .chroma .mf {
 
 .article-toc #TableOfContents > ul > li {
   margin-bottom: 0.3rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.article-toc #TableOfContents > ul > li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
 }
 
 .article-toc #TableOfContents ul ul {
   padding-left: 1rem;
   margin-top: 0.2rem;
+  list-style: disc;
+}
+
+.article-toc #TableOfContents ul ul li::marker {
+  color: var(--color-secondary);
+  font-size: 0.75em;
 }
 
 .article-toc #TableOfContents a {

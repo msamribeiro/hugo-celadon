@@ -5,6 +5,17 @@
       <p class="article-date">{{ if .Date }}{{ .Date.Format "Jan 2, 2006" }}{{ end }} · {{ .ReadingTime }} min read</p>
       <h1 class="article-title">{{ .Title }}</h1>
     </header>
+    {{ if .Params.note }}
+      <aside class="article-aside">
+        <span class="article-aside-label">Author's note</span>
+        {{ .Params.note }}
+      </aside>
+    {{ end }}
+    {{ if .Params.toc }}
+      <nav class="article-toc">
+        {{ .TableOfContents }}
+      </nav>
+    {{ end }}
     <article class="article-content markdown-body">
       {{ .Content }}
     </article>

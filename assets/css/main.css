@@ -1899,6 +1899,115 @@ body[data-theme="dark"] .chroma .mf {
 .clip-body p { margin: 0; }
 .clip-body p + p { margin-top: 0.6em; }
 
+/* Author's note */
+.article-aside {
+  margin-bottom: 1.75rem;
+  padding: 0.85rem 1.15rem;
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: 0 6px 6px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+.article-aside-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 0.35rem;
+}
+
+/* Changelog */
+.article-changelog {
+  margin-top: 3rem;
+  padding: 1rem 1.15rem;
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: 0 6px 6px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+}
+
+.article-changelog-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 0.65rem;
+}
+
+.article-changelog-body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.article-changelog-body li {
+  color: var(--color-muted);
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+
+.article-changelog-body li:last-child { margin-bottom: 0; }
+
+.article-changelog-body strong {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+/* Table of Contents */
+.article-toc {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-highlight);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+}
+
+.article-toc::before {
+  content: "Contents";
+  display: block;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.article-toc #TableOfContents ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.article-toc #TableOfContents > ul > li {
+  margin-bottom: 0.3rem;
+}
+
+.article-toc #TableOfContents ul ul {
+  padding-left: 1rem;
+  margin-top: 0.2rem;
+}
+
+.article-toc #TableOfContents a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.article-toc #TableOfContents a:hover {
+  color: var(--color-highlight);
+  text-decoration: underline;
+}
+
 .clip-image {
   width: 180px;
   flex-shrink: 0;

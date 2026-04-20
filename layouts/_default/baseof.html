@@ -24,10 +24,17 @@
             <a href="{{ .url }}">{{ .title }}</a>
           {{ end }}
         </div>
-        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
-          <span class="icon" data-icon-sun>☼</span>
-          <span class="icon" data-icon-moon>☾</span>
-        </button>
+        <div class="nav-right">
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+            <span class="icon" data-icon-sun>☼</span>
+            <span class="icon" data-icon-moon>☾</span>
+          </button>
+          <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </nav>
 
       <main class="main-container">

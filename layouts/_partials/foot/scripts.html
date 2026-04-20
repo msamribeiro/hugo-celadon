@@ -32,6 +32,32 @@
 })();
 
 (function () {
+  const nav = document.querySelector(".morandi-nav");
+  const toggle = document.querySelector("[data-nav-toggle]");
+  if (!nav || !toggle) return;
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = nav.classList.toggle("nav-open");
+    toggle.setAttribute("aria-expanded", isOpen);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!nav.contains(e.target)) {
+      nav.classList.remove("nav-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  nav.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("nav-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+})();
+
+(function () {
   const wrappers = Array.from(document.querySelectorAll("[data-expandable]"));
   if (!wrappers.length) return;
 

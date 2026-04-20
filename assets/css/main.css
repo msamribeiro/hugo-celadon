@@ -124,6 +124,38 @@ body[data-theme="dark"] .morandi-nav {
   color: var(--color-primary);
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  background: var(--color-surface);
+  border-radius: 999px;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.morandi-nav.nav-open .nav-hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
 .theme-toggle {
   border: none;
   border-radius: 999px;
@@ -786,6 +818,14 @@ body[data-theme="dark"] .tag {
   font-style: italic;
   font-weight: 700;
   color: var(--color-highlight);
+}
+
+.markdown-body li {
+  margin-bottom: 0.4rem;
+}
+
+.markdown-body li:last-child {
+  margin-bottom: 0;
 }
 
 .markdown-body li::marker {
@@ -1547,16 +1587,38 @@ body[data-theme="dark"] .chroma .mf {
 }
 
 @media (max-width: 640px) {
-  .morandi-nav {
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    border-radius: 24px;
+  .nav-hamburger {
+    display: flex;
   }
 
   .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--color-surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(125, 162, 169, 0.15);
+    padding: 0.5rem 0;
+    z-index: 20;
+  }
+
+  .nav-links a {
     width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 0.6rem 1.25rem;
+  }
+
+  .morandi-nav {
+    position: relative;
+  }
+
+  .morandi-nav.nav-open .nav-links {
+    display: flex;
   }
 }
 
@@ -1569,19 +1631,36 @@ body[data-theme="dark"] .chroma .mf {
     padding: 1.5rem;
   }
 
+  .markdown-body ul,
+  .markdown-body ol {
+    margin-left: 0;
+    padding-left: 1.25rem;
+  }
+
   .exp-header,
   .edu-header {
     flex-direction: column;
     gap: 0.15rem;
   }
 
-  .exp-period,
+  .exp-period {
+    display: none;
+  }
+
   .edu-period {
     white-space: normal;
   }
 
+  .exp-roles {
+    gap: 0.5rem;
+  }
+
+  .exp-role-period {
+    flex-basis: 100%;
+  }
+
   .clip-image {
-    display: none;
+    display: none !important;
   }
 
   .hero-copy,

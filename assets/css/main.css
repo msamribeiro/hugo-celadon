@@ -1532,18 +1532,6 @@ body[data-theme="dark"] .chroma .mf {
 }
 
 @media (max-width: 960px) {
-  .morandi-nav {
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    border-radius: 24px;
-  }
-
-  .nav-links {
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .hero {
     padding: 2rem;
   }
@@ -1558,6 +1546,20 @@ body[data-theme="dark"] .chroma .mf {
   }
 }
 
+@media (max-width: 640px) {
+  .morandi-nav {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    border-radius: 24px;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 600px) {
   .page-shell {
     padding: 1.5rem 1rem 3rem;
@@ -1567,9 +1569,36 @@ body[data-theme="dark"] .chroma .mf {
     padding: 1.5rem;
   }
 
-  .section-heading {
+  .exp-header,
+  .edu-header {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .exp-period,
+  .edu-period {
+    white-space: normal;
+  }
+
+  .clip-image {
+    display: none;
+  }
+
+  .hero-copy,
+  .section-block,
+  [id] {
+    scroll-margin-top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .morandi-nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+    font-size: 0.85rem;
   }
 }
 .hidden {

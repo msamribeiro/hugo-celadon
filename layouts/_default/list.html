@@ -38,11 +38,13 @@
       {{ range $pages }}
         {{ $thumb := or .Params.thumbnail .Params.image "/images/profile.jpg" }}
         {{ $thumbPath := strings.TrimPrefix "/" $thumb }}
+        {{ $thumbDarkPath := strings.TrimPrefix "/" (or .Params.image_dark $thumb) }}
         {{ $tags := .Params.tags | default (slice) }}
         <article class="listing-card" data-tags="{{ range $i, $tag := $tags }}{{ if $i }},{{ end }}{{ lower $tag }}{{ end }}">
           <div class="listing-thumb">
             <a href="{{ .RelPermalink }}">
-              <img src="{{ $thumbPath | relURL }}" alt="{{ .Title }}" loading="lazy">
+              <img class="listing-thumb-img--light" src="{{ $thumbPath | relURL }}" alt="{{ .Title }}" loading="lazy">
+              <img class="listing-thumb-img--dark" src="{{ $thumbDarkPath | relURL }}" alt="{{ .Title }}" loading="lazy">
             </a>
           </div>
 

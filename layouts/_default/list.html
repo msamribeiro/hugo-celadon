@@ -31,6 +31,9 @@
       <button type="button" class="view-btn" data-view="view-compact" aria-label="Compact view">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="5" height="5"></rect><rect x="10" y="4" width="5" height="5"></rect><rect x="17" y="4" width="4" height="5"></rect><rect x="3" y="11" width="4" height="5"></rect><rect x="9" y="11" width="4" height="5"></rect><rect x="15" y="11" width="6" height="5"></rect></svg>
       </button>
+      <button type="button" class="view-btn" data-view="view-plain" aria-label="Plain list view" title="Plain list">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="16" y2="6"></line><line x1="19" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="16" y2="12"></line><line x1="19" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="16" y2="18"></line><line x1="19" y1="18" x2="21" y2="18"></line></svg>
+      </button>
     </div>
 
     {{ $pages := .Pages.ByDate.Reverse }}
@@ -49,7 +52,7 @@
           </div>
 
           <div class="card-body">
-            <div class="listing-date">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</div>
+            <div class="listing-date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time><span class="reading-time"> · {{ .ReadingTime }} min read</span></div>
             
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             
@@ -82,14 +85,17 @@
       const storageKey = "listing-view-mode";
 
       const applyView = (mode) => {
-        container.classList.remove("view-card", "view-list", "view-compact");
+        container.classList.remove("view-card", "view-list", "view-compact", "view-plain");
         container.classList.add(mode);
-        viewButtons.forEach((btn) =>
-          btn.classList.toggle("active", btn.dataset.view === mode)
-        );
+        viewButtons.forEach((btn) => {
+          const active = btn.dataset.view === mode;
+          btn.classList.toggle("active", active);
+          btn.setAttribute("aria-pressed", String(active));
+        });
       };
 
-      const storedView = localStorage.getItem(storageKey) || "view-card";
+      const savedView = localStorage.getItem(storageKey);
+      const storedView = [...viewButtons].some((btn) => btn.dataset.view === savedView) ? savedView : "view-card";
       applyView(storedView);
 
       viewButtons.forEach((btn) =>

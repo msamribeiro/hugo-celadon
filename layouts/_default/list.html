@@ -7,6 +7,12 @@
       </div>
     </div>
 
+    {{ $listing := site.Params.listing | default dict }}
+    {{ $defaultView := $listing.defaultView | default "view-card" }}
+    {{ $showViewToggle := ne $listing.showViewToggle false }}
+    {{ $showTagFilter := ne $listing.showTagFilter false }}
+
+    {{ if $showTagFilter }}
     {{ $allTags := slice }}
     {{ range .Pages }}
       {{ with .Params.tags }}
@@ -20,7 +26,9 @@
         <button class="filter-btn" data-filter="{{ . | lower }}">{{ . }}</button>
       {{ end }}
     </div>
+    {{ end }}
 
+    {{ if $showViewToggle }}
     <div class="listing-toolbar" role="group" aria-label="Choose layout">
       <button type="button" class="view-btn" data-view="view-card" aria-label="Card view">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
@@ -35,9 +43,10 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="16" y2="6"></line><line x1="19" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="16" y2="12"></line><line x1="19" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="16" y2="18"></line><line x1="19" y1="18" x2="21" y2="18"></line></svg>
       </button>
     </div>
+    {{ end }}
 
     {{ $pages := .Pages.ByDate.Reverse }}
-    <div id="listing-container" class="listing-grid view-card">
+    <div id="listing-container" class="listing-grid {{ $defaultView }}" data-default-view="{{ $defaultView }}">
       {{ range $pages }}
         {{ $thumb := or .Params.thumbnail .Params.image "/images/profile.jpg" }}
         {{ $thumbPath := strings.TrimPrefix "/" $thumb }}
@@ -94,15 +103,19 @@
         });
       };
 
-      const savedView = localStorage.getItem(storageKey);
-      const storedView = [...viewButtons].some((btn) => btn.dataset.view === savedView) ? savedView : "view-card";
+      const defaultView = container.dataset.defaultView || "view-card";
+      let savedView = null;
+      if (viewButtons.length) {
+        try { savedView = localStorage.getItem(storageKey); } catch (e) {}
+      }
+      const storedView = [...viewButtons].some((btn) => btn.dataset.view === savedView) ? savedView : defaultView;
       applyView(storedView);
 
       viewButtons.forEach((btn) =>
         btn.addEventListener("click", () => {
           const mode = btn.dataset.view;
           applyView(mode);
-          localStorage.setItem(storageKey, mode);
+          try { localStorage.setItem(storageKey, mode); } catch (e) {}
         })
       );
 
